@@ -65,22 +65,28 @@
         // No need to change anything ABOVE this line ^
 
         return (
+          //Answers:
+          //(<></>) breaks were not being utilized which made our javascript code unreadable because we are inputing jsx to an html file
+          // *line 75 the onClick function was throwing off an error due to the letter casing because it was typed as 'onclick' instead of 'onClick' our system is unable to properly execute the method.
+          //*line 73 onClick does not have a function to invoke and must have a function in order to execute the command properly.
+          <>
           <h1>Draw a Card</h1>
-          <button onClick={}>
+          <button onClick={drawCard}>
             Click to Draw a Card
-          </button>
-          <button onclick={shuffle}>
-            Return Cards and Shuffle Deck
-          </button>
-          <div style={handStyles}>
-            {hand.map((card, index) => {
-              return (
-                <div style={cardStyles} key={index}>
-                  {card}
+            </button>
+            <button onClick={shuffle}>
+              Return Cards and Shuffle Deck
+              </button>
+              <div style={handStyles}>
+                {hand.map((card, index) => {
+                  return (
+                    <div style={cardStyles} key={index}>
+                      {card}
                 </div>
-              )
-            })}
-          </div>
+                )
+              })}
+              </div>
+          </>
         )
       }
 
